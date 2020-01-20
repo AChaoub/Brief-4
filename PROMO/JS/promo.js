@@ -1,8 +1,27 @@
 window.onload = () => {
         menuOp();
+        // 
+        document.getElementById('D').addEventListener('click',()=>{
+            filter("Des");
+        });
+        document.getElementById('A').addEventListener('click',()=>{
+            filter("Aqua");
+        });
+        document.getElementById('T').addEventListener('click',()=>{
+            filter("Con1");
+        });
 }
 
-
+function filter(fil){
+    let all = document.getElementsByClassName('Con');
+    for(let i=0;i<all.length;i++){
+        console.log(all[i].children[0]);
+        if(all[i].children[0].getAttribute('class').search(fil) <= -1)
+            all[i].style.display = "none";
+        else
+            all[i].style.display = "flex";
+    }
+}
 
 
 function menuOp() {
